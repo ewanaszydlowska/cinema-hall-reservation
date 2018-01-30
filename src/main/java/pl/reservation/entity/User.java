@@ -14,7 +14,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
-	private long id;
+	private Long id;
 
 	private String firstName;
 
@@ -26,18 +26,18 @@ public class User {
 
 	private String password;
 
-	private int age;
+	private Integer age;
 
 	public User() {
 		super();
 	}
 
-	public long getId() {
-		return id;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public Long getId() {
+		return id;
 	}
 
 	public String getFirstName() {
@@ -80,11 +80,13 @@ public class User {
 		this.password = password;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
+
+	
 }
