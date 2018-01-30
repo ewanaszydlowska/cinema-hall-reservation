@@ -1,4 +1,4 @@
-package pl.workspace.app;
+package pl.reservation.app;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
