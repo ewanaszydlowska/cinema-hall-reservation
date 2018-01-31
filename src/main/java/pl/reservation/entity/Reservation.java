@@ -34,5 +34,54 @@ public class Reservation {
 	
 	private boolean isActive;
 	
+	public Reservation() {}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Screening getScreening() {
+		return screening;
+	}
+
+	public void setScreening(Screening screening) {
+		this.screening = screening;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<SeatReserved> getSeatsReserved() {
+		return seatsReserved;
+	}
+
+	public void setSeatsReserved(List<SeatReserved> seatsReserved) {
+		this.seatsReserved = seatsReserved;
+	}
+
+	public boolean isPaid() {
+		return isPaid;
+	}
+
+	public void setPaid(boolean isPaid) {
+		this.isPaid = isPaid;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 	
 }

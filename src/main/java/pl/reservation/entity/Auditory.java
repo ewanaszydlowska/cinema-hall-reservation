@@ -67,5 +67,21 @@ public class Auditory {
 	public void setCinema(Cinema cinema) {
 		this.cinema = cinema;
 	}
-	
+
+	public List<Seat> getSeats() {
+		return seats;
+	}
+
+	public void setSeats(List<Seat> seats) {
+		this.seats = seats;
+	}
+
+	public List<Screening> getScreening() {
+		return screening;
+	}
+
+	public void setScreening(List<Screening> screening) {
+		this.screening = screening;
+	}
+
 }

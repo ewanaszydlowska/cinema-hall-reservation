@@ -21,11 +21,18 @@ public class Movie {
 	private Long id;
 	
 	private String title;
+	
 	private String type;
+	
 	private String director;
+	
 	private String cast;
+	
 	private Integer ageLimit;
+	
 	private Integer duration;
+	
+	private String posterUrl;
 	
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private List<Screening> screenings;
@@ -92,6 +99,38 @@ public class Movie {
 
 	public void setDuration(Integer duration) {
 		this.duration = duration;
+	}
+
+	public String getPosterUrl() {
+		return posterUrl;
+	}
+
+	public void setPosterUrl(String posterUrl) {
+		this.posterUrl = posterUrl;
+	}
+
+	public List<Screening> getScreenings() {
+		return screenings;
+	}
+
+	public void setScreenings(List<Screening> screenings) {
+		this.screenings = screenings;
+	}
+
+	public List<Review> getReview() {
+		return review;
+	}
+
+	public void setReview(List<Review> review) {
+		this.review = review;
+	}
+
+	public List<Rating> getRating() {
+		return rating;
+	}
+
+	public void setRating(List<Rating> rating) {
+		this.rating = rating;
 	}
 
 }

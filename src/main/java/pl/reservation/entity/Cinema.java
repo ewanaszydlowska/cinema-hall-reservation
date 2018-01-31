@@ -75,4 +75,12 @@ public class Cinema {
 		this.phone = phone;
 	}
 
+	public List<Auditory> getAuditories() {
+		return auditories;
+	}
+
+	public void setAuditories(List<Auditory> auditories) {
+		this.auditories = auditories;
+	}
+
 }

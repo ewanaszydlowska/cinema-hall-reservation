@@ -64,5 +64,13 @@ public class Seat {
 	public void setAuditory(Auditory auditory) {
 		this.auditory = auditory;
 	}
-	
+
+	public List<SeatReserved> getSeatsReserved() {
+		return seatsReserved;
+	}
+
+	public void setSeatsReserved(List<SeatReserved> seatsReserved) {
+		this.seatsReserved = seatsReserved;
+	}
+
 }

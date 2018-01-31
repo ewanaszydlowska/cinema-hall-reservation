@@ -69,5 +69,21 @@ public class Screening {
 	public void setAuditory(Auditory auditory) {
 		this.auditory = auditory;
 	}
-	
+
+	public List<SeatReserved> getSeatReserved() {
+		return seatReserved;
+	}
+
+	public void setSeatReserved(List<SeatReserved> seatReserved) {
+		this.seatReserved = seatReserved;
+	}
+
+	public List<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+
 }

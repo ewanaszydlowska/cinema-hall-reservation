@@ -59,5 +59,5 @@ public class SeatReserved {
 	public void setReservation(Reservation reservation) {
 		this.reservation = reservation;
 	}
-	
+
 }
