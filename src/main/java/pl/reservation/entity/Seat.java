@@ -20,8 +20,10 @@ public class Seat {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
 	private Integer row;
 	
+	@NotNull
 	private Integer numberInRow;
 	
 	@ManyToOne

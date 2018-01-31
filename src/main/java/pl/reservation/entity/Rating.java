@@ -16,7 +16,7 @@ public class Rating {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private int rating;
+	private Integer rating;
 	
 	@ManyToOne
 	private Movie movie;

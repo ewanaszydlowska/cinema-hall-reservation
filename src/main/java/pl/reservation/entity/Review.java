@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "review")
 public class Review {
@@ -20,6 +22,7 @@ public class Review {
 	
 	private Date created;
 	
+	@NotBlank
 	private String text;
 	
 	@ManyToOne

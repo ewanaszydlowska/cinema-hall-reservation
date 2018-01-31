@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "auditory")
 public class Auditory {
@@ -20,8 +22,10 @@ public class Auditory {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank
 	private String name;
 	
+	@NotNull
 	private Integer seatQuantity;
 	
 	@ManyToOne

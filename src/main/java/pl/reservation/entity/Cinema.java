@@ -11,6 +11,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+import pl.reservation.validator.PhoneNumber;
+
 @Entity
 @Table(name = "cinema")
 public class Cinema {
@@ -19,12 +23,17 @@ public class Cinema {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotBlank
 	private String name;
 
+	@NotBlank
 	private String address;
 
+	@NotBlank
 	private String email;
 
+	@NotBlank
+	@PhoneNumber
 	private String phone;
 	
 	@OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL)
