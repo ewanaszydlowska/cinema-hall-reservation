@@ -33,13 +33,12 @@ public class Movie {
 	@NotBlank
 	private String cast;
 	
-	@NotNull
-	private Integer ageLimit;
+	@NotBlank
+	private String ageLimit;
 	
 	@NotNull
 	private Integer duration;
 	
-	@NotBlank
 	private String posterUrl;
 	
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
@@ -93,11 +92,11 @@ public class Movie {
 		this.cast = cast;
 	}
 
-	public Integer getAgeLimit() {
+	public String getAgeLimit() {
 		return ageLimit;
 	}
 
-	public void setAgeLimit(Integer ageLimit) {
+	public void setAgeLimit(String ageLimit) {
 		this.ageLimit = ageLimit;
 	}
 
