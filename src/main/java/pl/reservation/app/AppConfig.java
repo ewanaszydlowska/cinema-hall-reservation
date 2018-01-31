@@ -52,7 +52,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 	@Bean
 	public LocalEntityManagerFactoryBean entityManagerFactory() {
 		LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
-		emfb.setPersistenceUnitName("workspace");
+		emfb.setPersistenceUnitName("cinema_system");
 		return emfb;
 	}
 

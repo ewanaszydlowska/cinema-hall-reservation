@@ -9,6 +9,7 @@
 <title>workspace</title>
 </head>
 <body>
+Home page
 <%@ include file="jspf/header.jspf" %>
 </body>
 </html>
