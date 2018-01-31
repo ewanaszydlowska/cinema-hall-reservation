@@ -15,5 +15,4 @@
 	crossorigin="anonymous"></script>
 <script src="${pageContext.request.contextPath}/resources/js/app.js" />
 
-</body>
-</html>
+</body></html>

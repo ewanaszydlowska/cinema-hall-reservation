@@ -6,9 +6,7 @@
 <%@ include file="jspf/header.jspf"%>
 <%@ include file="jspf/main_menu.jspf"%>
 
-Home page
 ${message}
-<%@ include file="jspf/header.jspf" %>
 
 Logged as: <p>${msg}</p>
 
