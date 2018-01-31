@@ -18,7 +18,6 @@ public class Seat {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
 	private Integer row;

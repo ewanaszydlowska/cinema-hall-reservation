@@ -19,7 +19,6 @@ public class Screening {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
 	private Date startTime;
