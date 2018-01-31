@@ -24,7 +24,6 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
 	@NotEmpty
@@ -117,6 +116,13 @@ public class User {
 	public Integer getAge() {
 		return age;
 	}
+	
+//	public Integer getAge() {							// pobieramy date urodzenia, dostajemy wiek użytkownika
+//		LocalDate date = LocalDate.now();
+//		int date1 = date.getYear() - this.age;
+//		Integer age = new Integer(date1);
+//		return age;
+//	}
 
 	public void setAge(Integer age) {
 		this.age = age;

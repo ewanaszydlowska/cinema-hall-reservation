@@ -8,27 +8,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <%@ include file = "../jspf/head_config.jspf" %>
-
 </head>
 <body>
 <%@ include file = "../jspf/header.jspf" %>
 
-<h1>Registration</h1>
 
+<h1>Login</h1>
 <p>${msg}</p>
-<form:form method="post" modelAttribute="user">
-	<p>First Name<form:input path="firstName" /><form:errors path="firstName"></form:errors></p>
-	<p>Lastname<form:input path="lastName" /><form:errors path="lastName"></form:errors></p>
-	<p>YearOfBirth<form:input path="age" /><form:errors path="age"></form:errors></p>
-	<p>Phone<form:input path="phone" /><form:errors path="phone"></form:errors></p>
-	<p>Email<form:input path="email" /><form:errors path="email"></form:errors></p>
-	<p>Password<form:password path="password" /><form:errors path="password"></form:errors></p>
-<p><input type="submit" /></p>
+
+<form:form method="post" modelAttribute="loginData">
+	<p>Email<form:input path="email" /></p>
+	<p>Password<form:password path="password" /></p>
+	<p><input type="submit" /></p>
+	<form:errors></form:errors>
 </form:form>
 
 
-<!-- END MAIN -->
 <%@ include file = "../jspf/footer.jspf" %>
-
 </body>
 </html>
