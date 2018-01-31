@@ -108,10 +108,21 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
+	public boolean isPasswordCorrect(String pwd) {
+		return BCrypt.checkpw(pwd, this.password);
+	}
+	
 	public Integer getAge() {
 		return age;
 	}
+	
+//	public Integer getAge() {							// pobieramy date urodzenia, dostajemy wiek użytkownika
+//		LocalDate date = LocalDate.now();
+//		int date1 = date.getYear() - this.age;
+//		Integer age = new Integer(date1);
+//		return age;
+//	}
 
 	public void setAge(Integer age) {
 		this.age = age;
