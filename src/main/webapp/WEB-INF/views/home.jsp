@@ -12,5 +12,10 @@
 Home page
 ${message}
 <%@ include file="jspf/header.jspf" %>
+
+Logged as: <p>${msg}</p>
+
+<a href="/cinema-hall-reservation/register">Zarejestruj sie</a>
+<a href="/cinema-hall-reservation/login">Zaloguj sie</a>
 </body>
 </html>
