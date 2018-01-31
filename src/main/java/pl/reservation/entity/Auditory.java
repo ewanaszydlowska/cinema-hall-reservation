@@ -7,33 +7,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "cinema")
-public class Cinema {
-
+@Table(name = "auditory")
+public class Auditory {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
 	private Long id;
-
-	private String name;
-
-	private String address;
-
-	private String email;
-
-	private String phone;
 	
-	@OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL)
-	private List<Auditory> auditories;
-
-	public Cinema() {
-		super();
-	}
+	private String name;
+	
+	private Integer seatQuantity;
+	
+	@ManyToOne
+	private Cinema cinema;
+	
+	@OneToMany(mappedBy = "auditory", cascade = CascadeType.ALL)
+	private List<Seat> seats;
+	
+	@OneToMany(mappedBy = "auditory", cascade = CascadeType.ALL)
+	private List<Screening> screening;
+	
+	public Auditory() {}
 
 	public Long getId() {
 		return id;
@@ -51,28 +52,20 @@ public class Cinema {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
+	public Integer getSeatQuantity() {
+		return seatQuantity;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setSeatQuantity(Integer seatQuantity) {
+		this.seatQuantity = seatQuantity;
 	}
 
-	public String getEmail() {
-		return email;
+	public Cinema getCinema() {
+		return cinema;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCinema(Cinema cinema) {
+		this.cinema = cinema;
 	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
+	
 }
