@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -24,25 +25,24 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
-	@NotEmpty
+	@NotBlank
 	private String firstName;
 
-	@NotEmpty
+	@NotBlank
 	private String lastName;
 
-	@NotEmpty
+	@NotBlank
 	@PhoneNumber
 	private String phone;
 
-	@NotEmpty
+	@NotBlank
 	@Email
 	@Column(unique = true)
 	private String email;
 
-	@NotEmpty
+	@NotBlank
 	private String password;
 
 	@NotNull
@@ -57,17 +57,16 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Reservation> reservations;
 	
-
 	public User() {
 		super();
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -107,11 +106,7 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-		this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-	}
-	
-	public boolean isPasswordCorrect(String pwd) {
-		return BCrypt.checkpw(pwd, this.password);
+		this.password = password;
 	}
 
 	public Integer getAge() {
@@ -122,5 +117,28 @@ public class User {
 		this.age = age;
 	}
 
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
+
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
+	}
 	
 }

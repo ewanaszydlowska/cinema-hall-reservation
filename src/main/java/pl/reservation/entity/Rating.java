@@ -14,10 +14,9 @@ public class Rating {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
-	private int rating;
+	private Integer rating;
 	
 	@ManyToOne
 	private Movie movie;
@@ -58,7 +57,7 @@ public class Rating {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 }
 
 

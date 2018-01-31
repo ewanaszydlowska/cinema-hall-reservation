@@ -11,21 +11,36 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "movie")
 public class Movie {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
+	@NotBlank
 	private String title;
+	
+	@NotBlank
 	private String type;
+	
+	@NotBlank
 	private String director;
+	
+	@NotBlank
 	private String cast;
+	
+	@NotNull
 	private Integer ageLimit;
+	
+	@NotNull
 	private Integer duration;
+	
+	@NotBlank
+	private String posterUrl;
 	
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private List<Screening> screenings;
@@ -92,6 +107,38 @@ public class Movie {
 
 	public void setDuration(Integer duration) {
 		this.duration = duration;
+	}
+
+	public String getPosterUrl() {
+		return posterUrl;
+	}
+
+	public void setPosterUrl(String posterUrl) {
+		this.posterUrl = posterUrl;
+	}
+
+	public List<Screening> getScreenings() {
+		return screenings;
+	}
+
+	public void setScreenings(List<Screening> screenings) {
+		this.screenings = screenings;
+	}
+
+	public List<Review> getReview() {
+		return review;
+	}
+
+	public void setReview(List<Review> review) {
+		this.review = review;
+	}
+
+	public List<Rating> getRating() {
+		return rating;
+	}
+
+	public void setRating(List<Rating> rating) {
+		this.rating = rating;
 	}
 
 }
