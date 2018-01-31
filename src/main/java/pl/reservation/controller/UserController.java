@@ -22,7 +22,7 @@ public class UserController {
 	UserRepository userrepo;
 	
 
-@GetMapping("/register")
+	@GetMapping("/register")
 	public String register(Model m) {
 		m.addAttribute("user", new User());
 		return "account/register";

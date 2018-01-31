@@ -5,7 +5,7 @@
   <artifactId>cinema_system</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>cinemahall Maven Webapp</name>
+  <name>cinema_system Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
   <properties>

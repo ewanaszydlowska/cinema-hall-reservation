@@ -22,10 +22,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
-@ComponentScan(basePackages = { "pl.workspace.controller", "pl.workspace.entity", "pl.workspace.bean" })
+@ComponentScan(basePackages = { "pl.reservation.controller", "pl.reservation.entity", "pl.reservation.bean" })
 @EnableWebMvc
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages= {"pl.workspace.repository"})	// Spring Data
+@EnableJpaRepositories(basePackages= {"pl.reservation.repository"})	// Spring Data
 public class AppConfig extends WebMvcConfigurerAdapter{
 
 	@Bean

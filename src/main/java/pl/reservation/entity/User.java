@@ -12,6 +12,8 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.mindrot.jbcrypt.BCrypt;
 
+import pl.reservation.validator.PhoneNumber;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -28,6 +30,7 @@ public class User {
 	private String lastName;
 
 	@NotEmpty
+	@PhoneNumber
 	private String phone;
 
 	@NotEmpty
