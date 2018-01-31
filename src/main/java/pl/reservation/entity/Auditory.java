@@ -17,7 +17,8 @@ public class Auditory {
 	private Long id;
 	
 	private String name;
-	private int seatQuantity;
+	
+	private Integer seatQuantity;
 	
 	public Auditory() {}
 
@@ -37,11 +38,11 @@ public class Auditory {
 		this.name = name;
 	}
 
-	public int getSeatQuantity() {
+	public Integer getSeatQuantity() {
 		return seatQuantity;
 	}
 
-	public void setSeatQuantity(int seatQuantity) {
+	public void setSeatQuantity(Integer seatQuantity) {
 		this.seatQuantity = seatQuantity;
 	}
 	

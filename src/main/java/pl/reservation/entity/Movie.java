@@ -20,8 +20,8 @@ public class Movie {
 	private String type;
 	private String director;
 	private String cast;
-	private int ageLimit;
-	private int duration;
+	private Integer ageLimit;
+	private Integer duration;
 
 	public Movie() {}
 
@@ -65,20 +65,20 @@ public class Movie {
 		this.cast = cast;
 	}
 
-	public int getAgeLimit() {
+	public Integer getAgeLimit() {
 		return ageLimit;
 	}
 
-	public void setAgeLimit(int ageLimit) {
+	public void setAgeLimit(Integer ageLimit) {
 		this.ageLimit = ageLimit;
 	}
 
-	public int getDuration() {
+	public Integer getDuration() {
 		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
-	
+
 }
