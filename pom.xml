@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>pl.reservation</groupId>
-  <artifactId>cinemahall</artifactId>
+  <artifactId>cinema_system</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>cinemahall Maven Webapp</name>
@@ -69,8 +69,14 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.39</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
+		<dependency>
+			<groupId>org.mindrot</groupId>
+			<artifactId>jbcrypt</artifactId>
+			<version>0.4</version>
+		</dependency>
   </dependencies>
   <build>
-    <finalName>cinemahall</finalName>
+    <finalName>cinema_system</finalName>
   </build>
 </project>
