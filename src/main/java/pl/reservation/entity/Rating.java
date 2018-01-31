@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -18,8 +19,10 @@ public class Rating {
 	
 	private int rating;
 	
+	@ManyToOne
 	private Movie movie;
 	
+	@ManyToOne
 	private User user;
 	
 	public Rating() {}
