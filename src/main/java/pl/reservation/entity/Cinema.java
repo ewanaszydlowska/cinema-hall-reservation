@@ -23,8 +23,6 @@ public class Cinema {
 	private String email;
 
 	private String phone;
-	
-	public Auditory auditory;
 
 	public Cinema() {
 		super();
@@ -68,14 +66,6 @@ public class Cinema {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public Auditory getAuditory() {
-		return auditory;
-	}
-
-	public void setAuditory(Auditory auditory) {
-		this.auditory = auditory;
 	}
 
 }

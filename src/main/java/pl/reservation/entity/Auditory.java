@@ -20,6 +20,8 @@ public class Auditory {
 	
 	private Integer seatQuantity;
 	
+	private Cinema cinema;
+	
 	public Auditory() {}
 
 	public Long getId() {
@@ -44,6 +46,14 @@ public class Auditory {
 
 	public void setSeatQuantity(Integer seatQuantity) {
 		this.seatQuantity = seatQuantity;
+	}
+
+	public Cinema getCinema() {
+		return cinema;
+	}
+
+	public void setCinema(Cinema cinema) {
+		this.cinema = cinema;
 	}
 	
 }
