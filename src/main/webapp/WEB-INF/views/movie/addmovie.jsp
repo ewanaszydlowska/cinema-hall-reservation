@@ -9,10 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<%@ include file = "jspf/head_config.jspf" %>
-
+<%@ include file = "../jspf/head_config.jspf" %>
+</head>
 <body>
-<%@ include file = "jspf/header.jspf" %>
+<%@ include file = "../jspf/header.jspf" %>
 
 <h1 class="w3-text-teal">Add new movie</h1>
 
@@ -22,13 +22,13 @@
 	</c:when>
 	<c:otherwise>
 		<form:form method="post" modelAttribute="movie" enctype="multipart/form-data">
-		<p>Title<form:input path="title"/></p><form:errors path="name"/>
+		<p>Title<form:input path="title"/></p><form:errors path="title"/>
 		<p>Type<form:select items="${type}" path="type"/></p>
 		<p>Director<form:input path="director"/></p><form:errors path="director"/>
 		<p>Cast<form:input path="cast"/></p><form:errors path="cast"/>
 		<p>Age Limit<form:select items="${ageLimit}" path="ageLimit"/></p><form:errors path="ageLimit"/>
 		<p>Duration<form:input path="duration"/></p>
-		<p>Upload File: <input type="file" name="photo"></p>
+		<p>Upload File: <input type="file" name="photo"/></p>
 		<p><input type="submit" /></p>
 		</form:form>
 	
@@ -37,7 +37,6 @@
 </c:choose>
 
 <!-- END MAIN -->
-<%@ include file = "jspf/footer.jspf" %>
-</div>
+<%@ include file = "../jspf/footer.jspf" %>
 </body>
 </html>

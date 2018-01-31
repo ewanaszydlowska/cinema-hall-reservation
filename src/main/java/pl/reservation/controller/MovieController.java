@@ -50,8 +50,6 @@ public class MovieController {
 			return "movie/addmovie";
 		}
 
-		HttpSession s = SessionManager.session();
-		User u = (User) s.getAttribute("user");
 		movie.setPosterUrl(null);
 		String fileName = null;
 		this.movieRepo.save(movie);
@@ -67,7 +65,7 @@ public class MovieController {
 					BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(new File(
 							// TODO :: absolute - path & check after deployment without eclipse
 							// "./../../../../webapp/WEB-INF/resources/picture/" + fileName)));
-							"/home/szymon/workspace/CinemaReservation/cinema-hall-reservation/src/main/webapp/WEB-INF/resources/picture" + fileName)));
+							"/home/szymon/workspace/CinemaReservation/cinema-hall-reservation/src/main/webapp/WEB-INF/resources/picture/" + fileName)));
 					buffStream.write(bytes);
 					buffStream.close();
 					// seter dla url
