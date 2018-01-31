@@ -18,11 +18,12 @@ public class Seat {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
+	@NotNull
 	private Integer row;
 	
+	@NotNull
 	private Integer numberInRow;
 	
 	@ManyToOne
@@ -64,5 +65,13 @@ public class Seat {
 	public void setAuditory(Auditory auditory) {
 		this.auditory = auditory;
 	}
-	
+
+	public List<SeatReserved> getSeatsReserved() {
+		return seatsReserved;
+	}
+
+	public void setSeatsReserved(List<SeatReserved> seatsReserved) {
+		this.seatsReserved = seatsReserved;
+	}
+
 }

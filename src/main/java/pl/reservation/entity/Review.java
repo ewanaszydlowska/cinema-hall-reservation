@@ -10,17 +10,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "review")
 public class Review {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
 	private Date created;
 	
+	@NotBlank
 	private String text;
 	
 	@ManyToOne
@@ -70,6 +72,5 @@ public class Review {
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
-	
-	
+
 }

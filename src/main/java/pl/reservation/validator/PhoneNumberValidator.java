@@ -11,17 +11,15 @@ public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber, St
 	@Override
 	public void initialize(PhoneNumber constraintAnnotation) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		
-		final String telephone = "([+]{1}[0-9]{2})?\\s?[0-9]{3}([-]?[0-9]{3}){2}";		// tel regex e.g +48724-570-120
+
+		final String telephone = "([+]{1}[0-9]{2})?\\s?[0-9]{3}([-]?[0-9]{3}){2}"; // tel regex e.g +48724-570-120
 		return Pattern.matches(telephone, value);
-		
 
 	}
 
 }
-

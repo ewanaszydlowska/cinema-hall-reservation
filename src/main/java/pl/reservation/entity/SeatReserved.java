@@ -14,7 +14,6 @@ public class SeatReserved {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
 	@ManyToOne
@@ -59,5 +58,5 @@ public class SeatReserved {
 	public void setReservation(Reservation reservation) {
 		this.reservation = reservation;
 	}
-	
+
 }
