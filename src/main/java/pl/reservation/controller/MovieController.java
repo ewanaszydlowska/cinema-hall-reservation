@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -23,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 
 import pl.reservation.bean.SessionManager;
 import pl.reservation.entity.Movie;
@@ -99,6 +99,63 @@ public class MovieController {
 
 	}
 		
+	@GetMapping("/edit/{id}")
+	public String editFlat(@PathVariable long id, Model m) {
+		Movie movie = this.movieRepo.findOne(id);
+		m.addAttribute("movie", movie);
+		return "movie/editmovie";
+	}
+
+	@PostMapping("/edit/{id}")
+	public String editFlatPost(@Valid @ModelAttribute Movie movie, BindingResult bindingResult,
+			@RequestParam("photo") MultipartFile file, RedirectAttributes ra, Model m) {
+		if (bindingResult.hasErrors()) {
+			return "movie/editmovie";
+		}
+		HttpSession s = SessionManager.session();
+		User u = (User) s.getAttribute("user");
+
+		movie.setCreated(new Date());
+		String fileName = null;
+		Long imgId = movie.getId();
+		if (!file.isEmpty()) {
+			try {
+
+				String extension = FilenameUtils.getExtension(file.getOriginalFilename());
+				if (extension.equals("jpg") || extension.equals("jpeg") || extension.equals("png")) {
+
+					fileName = "movie_" + imgId + "." + extension;
+					byte[] bytes = file.getBytes();
+					BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(new File(
+							// TODO :: absolute - path & check after deployment without eclipse
+							// "./../../../../webapp/WEB-INF/resources/picture/" + fileName)));
+
+							"/home/szymon/workspace/CinemaReservation/cinema-hall-reservation/src/main/webapp/WEB-INF/resources/picture/" + fileName)));
+
+					buffStream.write(bytes);
+					buffStream.close();
+					// seter dla url
+					movie.setPosterUrl(fileName);
+					// zapis db
+					this.movieRepo.save(movie);
+					m.addAttribute("message", "Dodano produkt do bazy.");
+					return "redirect:/";
+
+				} else {
+					m.addAttribute("eMessage", "Niepoprawny format pliku graficznego.");
+					return "redirect:/addmovie";
+				}
+
+			} catch (Exception e) {
+				return "home";
+			}
+		}
+
+		m.addAttribute("eMessage", "Brak zdjęcia.");
+		return "redirect:/";
+
+	}
+	
 	
 	@GetMapping("/{id}")
 	public String singleMovie(Model m, @PathVariable Long id) {

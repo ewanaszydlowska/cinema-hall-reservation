@@ -33,6 +33,9 @@
 	<p>Description: <b>${movie.description}</b></p>
 	<img src="//localhost:8080/cinema-hall-reservation/resources/picture/${movie.posterUrl}" width="300" height="250"/>	
 
+	<form action="/cinema-hall-reservation/movie/edit/${movie.id}"><button type="submit">Edit movie</button></form>
+	<form action="/cinema-hall-reservation/movie/delete/${movie.id}"><button type="submit">Delete movie</button></form>
+
 </div>
 
 	</c:otherwise>
