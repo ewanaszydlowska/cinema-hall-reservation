@@ -56,6 +56,7 @@ public class MovieController {
 
 		movie.setPosterUrl(null);
 		String fileName = null;
+		movie.setExpired(0);
 		this.movieRepo.save(movie);
 		Long imgId = movie.getId();
 		if (!file.isEmpty()) {
