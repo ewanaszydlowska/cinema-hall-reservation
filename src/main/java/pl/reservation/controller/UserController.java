@@ -35,7 +35,7 @@ public class UserController {
 	@PostMapping("/register")
 	public String registerPost(@Valid @ModelAttribute User user, BindingResult bindingResult, Model m) {
 		if (bindingResult.hasErrors()) {
-			return "redirect:/register";
+			return "account/register";
 		}
 		
 		List<User> users = this.userrepo.findAll();
