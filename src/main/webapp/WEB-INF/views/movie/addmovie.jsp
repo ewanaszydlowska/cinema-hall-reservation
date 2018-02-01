@@ -29,7 +29,8 @@
 		<p>Director<form:input path="director"/></p><form:errors path="director"/>
 		<p>Cast<form:input path="cast"/></p><form:errors path="cast"/>
 		<p>Age Limit<form:select items="${ageLimit}" path="ageLimit"/></p><form:errors path="ageLimit"/>
-		<p>Duration<form:input path="duration"/></p>
+		<p>Duration<form:input path="duration"/></p><form:errors path="duration"/>
+		<p>Description<form:input path="description"/></p><form:errors path="description"/>
 
 		<p>Upload File: <input type="file" name="photo"/></p>
 		<p><input type="submit" /></p>
