@@ -167,6 +167,13 @@ public class MovieController {
 		return "movie/single_movie";
 	}
 	
+	@GetMapping("/delete/{id}")
+	public String deleteMovie(@PathVariable long id, RedirectAttributes ra) {
+		this.movieRepo.delete(id);
+		return "redirect:/";
+
+	}
+	
 	
 	@ModelAttribute("type")
 	public List<String> getType() {
