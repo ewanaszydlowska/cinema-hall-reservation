@@ -17,11 +17,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import pl.reservation.bean.SessionManager;
 import pl.reservation.entity.Movie;
@@ -98,7 +100,15 @@ public class MovieController {
 	}
 		
 	
-	
+	@GetMapping("/{id}")
+	public String singleMovie(Model m, @PathVariable Long id) {
+		Movie movie = movieRepo.findOne(id);
+		HttpSession s = SessionManager.session();
+		User u = (User) s.getAttribute("user");
+		m.addAttribute("user", u);
+		m.addAttribute("movie", movie);
+		return "movie/single_movie";
+	}
 	
 	
 	@ModelAttribute("type")

@@ -35,6 +35,9 @@ public class Movie {
 	private String cast;
 	
 	@NotBlank
+	private String description;
+	
+	@NotBlank
 	private String ageLimit;
 	
 	@NotNull
@@ -162,6 +165,14 @@ public class Movie {
 
 	public void setExpired(int expired) {
 		this.expired = expired;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	
