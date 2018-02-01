@@ -1,5 +1,6 @@
 package pl.reservation.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,11 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import pl.reservation.validator.PhoneNumber;
 
@@ -46,7 +49,9 @@ public class User {
 	private String password;
 
 	@NotNull
-	private Integer age;
+	@Past
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date age;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Review> reviews;
@@ -113,9 +118,6 @@ public class User {
 		return BCrypt.checkpw(pwd, this.password);
 	}
 	
-	public Integer getAge() {
-		return age;
-	}
 	
 //	public Integer getAge() {							// pobieramy date urodzenia, dostajemy wiek użytkownika
 //		LocalDate date = LocalDate.now();
@@ -124,7 +126,12 @@ public class User {
 //		return age;
 //	}
 
-	public void setAge(Integer age) {
+
+	public Date getAge() {
+		return age;
+	}
+
+	public void setAge(Date age) {
 		this.age = age;
 	}
 
