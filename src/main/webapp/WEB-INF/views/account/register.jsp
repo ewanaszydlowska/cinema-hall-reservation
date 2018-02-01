@@ -16,18 +16,44 @@
 <h1>Registration</h1>
 
 <p>${msg}</p>
-<form:form method="post" modelAttribute="user">
-	<p>First Name<form:input path="firstName" /><form:errors path="firstName"></form:errors></p>
-	<p>Lastname<form:input path="lastName" /><form:errors path="lastName"></form:errors></p>
-	<p>YearOfBirth<form:input path="age" /><form:errors path="age"></form:errors></p>
-	<p>Phone<form:input path="phone" /><form:errors path="phone"></form:errors></p>
-	<p>Email<form:input path="email" /><form:errors path="email"></form:errors></p>
-	<p>Password<form:password path="password" /><form:errors path="password"></form:errors></p>
-<p><input type="submit" /></p>
-</form:form>
+	
+	<form:form method="post" modelAttribute="user">
+		<p>
+			First name:
+			<form:input type="text" path="firstName" />
+			<form:errors path="firstName" />
+		</p>
+		<p>
+			Last name:
+			<form:input type="text" path="lastName" />
+			<form:errors path="lastName" />
+		</p>
+		<p>
+			Year of birth:
+			<form:input type="date" path="age" />
+			<form:errors path="age" />
+		</p>
+		<p>
+			Phone:
+			<form:input type="tel" path="phone" />
+			<form:errors path="phone" />
+		</p>
+		<p>
+			Email:
+			<form:input type="email" path="email" />
+			<form:errors path="email" />
+		</p>
+		<p>
+			Password:
+			<form:password path="password" />
+			<form:errors path="password" />
+		</p>
+		<p>
+			<input type="submit" />
+		</p>
+	</form:form>
 
-
-<!-- END MAIN -->
+	<!-- END MAIN -->
 <%@ include file = "../jspf/footer.jspf" %>
 
 </body>
