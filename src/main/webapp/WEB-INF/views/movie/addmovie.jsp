@@ -21,25 +21,49 @@
 	<c:when test="${sessionScope.user == null}">
 	Log first if you want to add new movie!
 	</c:when>
-	<c:otherwise>
-		<form:form method="post" modelAttribute="movie" enctype="multipart/form-data">
+		<c:otherwise>
+			<form:form method="post" modelAttribute="movie"
+				enctype="multipart/form-data">
+				<p>
+					Title:
+					<form:input path="title" />
+					<form:errors path="title" />
+				</p>
+				<p>
+					Type:
+					<form:select items="${type}" path="type" />
+				</p>
+				<p>
+					Director:
+					<form:input path="director" />
+					<form:errors path="director" />
+				</p>
+				<p>
+					Cast:
+					<form:input path="cast" />
+					<form:errors path="cast" />
+				</p>
+				<p>
+					Age Limit:
+					<form:select items="${ageLimit}" path="ageLimit" />
+					<form:errors path="ageLimit" />
+				</p>
+				<p>
+					Duration:
+					<form:input path="duration" />
+				</p>
 
-		<p>Title<form:input path="title"/></p><form:errors path="title"/>
-		<p>Type<form:select items="${type}" path="type"/></p>
-		<p>Director<form:input path="director"/></p><form:errors path="director"/>
-		<p>Cast<form:input path="cast"/></p><form:errors path="cast"/>
-		<p>Age Limit<form:select items="${ageLimit}" path="ageLimit"/></p><form:errors path="ageLimit"/>
-		<p>Duration<form:input path="duration"/></p>
-
-		<p>Upload File: <input type="file" name="photo"/></p>
-		<p><input type="submit" /></p>
-		</form:form>
-	
-		
-	</c:otherwise>
+				<p>
+					Upload File: <input type="file" name="photo" />
+				</p>
+				<p>
+					<input type="submit" />
+				</p>
+			</form:form>
+		</c:otherwise>
 </c:choose>
 
-<!-- END MAIN -->
+	<!-- END MAIN -->
 
 <%@ include file = "../jspf/footer.jspf" %>
 
