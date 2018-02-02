@@ -23,9 +23,10 @@
 		${message}
 	</p>
 	<p>
-		Name:</p>
+		Name:
 		<form:input type="text" path="name" />
 		<form:errors path="name" />
+	</p>
 	<p>
 		Phone:
 		<form:input type="text" path="phone" />
@@ -34,8 +35,6 @@
 	<p>
 		<input type="submit" value="Dodaj" />
 	</p>
-
-
 </form:form>
 
 
