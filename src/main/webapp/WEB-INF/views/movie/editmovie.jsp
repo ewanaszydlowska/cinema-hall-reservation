@@ -9,13 +9,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-
 <%@ include file = "../jspf/head_config.jspf" %>
 </head>
 <body>
 <%@ include file = "../jspf/header.jspf" %>
 
-<h1 class="w3-text-teal">Add new movie</h1>
+<h1 class="w3-text-teal">Edit new movie</h1>
 
 <c:choose>
 	<c:when test="${sessionScope.user == null}">
@@ -41,8 +40,7 @@
 </c:choose>
 
 <!-- END MAIN -->
-
 <%@ include file = "../jspf/footer.jspf" %>
-
+</div>
 </body>
 </html>

@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -17,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,6 +58,7 @@ public class MovieController {
 
 		movie.setPosterUrl(null);
 		String fileName = null;
+		movie.setExpired(0);
 		this.movieRepo.save(movie);
 		Long imgId = movie.getId();
 		if (!file.isEmpty()) {
@@ -96,8 +99,80 @@ public class MovieController {
 
 	}
 		
+	@GetMapping("/edit/{id}")
+	public String editFlat(@PathVariable long id, Model m) {
+		Movie movie = this.movieRepo.findOne(id);
+		m.addAttribute("movie", movie);
+		return "movie/editmovie";
+	}
+
+	@PostMapping("/edit/{id}")
+	public String editFlatPost(@Valid @ModelAttribute Movie movie, BindingResult bindingResult,
+			@RequestParam("photo") MultipartFile file, RedirectAttributes ra, Model m) {
+		if (bindingResult.hasErrors()) {
+			return "movie/editmovie";
+		}
+		HttpSession s = SessionManager.session();
+		User u = (User) s.getAttribute("user");
+
+		movie.setCreated(new Date());
+		String fileName = null;
+		Long imgId = movie.getId();
+		if (!file.isEmpty()) {
+			try {
+
+				String extension = FilenameUtils.getExtension(file.getOriginalFilename());
+				if (extension.equals("jpg") || extension.equals("jpeg") || extension.equals("png")) {
+
+					fileName = "movie_" + imgId + "." + extension;
+					byte[] bytes = file.getBytes();
+					BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(new File(
+							// TODO :: absolute - path & check after deployment without eclipse
+							// "./../../../../webapp/WEB-INF/resources/picture/" + fileName)));
+
+							"/home/szymon/workspace/CinemaReservation/cinema-hall-reservation/src/main/webapp/WEB-INF/resources/picture/" + fileName)));
+
+					buffStream.write(bytes);
+					buffStream.close();
+					// seter dla url
+					movie.setPosterUrl(fileName);
+					// zapis db
+					this.movieRepo.save(movie);
+					m.addAttribute("message", "Dodano produkt do bazy.");
+					return "redirect:/";
+
+				} else {
+					m.addAttribute("eMessage", "Niepoprawny format pliku graficznego.");
+					return "redirect:/addmovie";
+				}
+
+			} catch (Exception e) {
+				return "home";
+			}
+		}
+
+		m.addAttribute("eMessage", "Brak zdjęcia.");
+		return "redirect:/";
+
+	}
 	
 	
+	@GetMapping("/{id}")
+	public String singleMovie(Model m, @PathVariable Long id) {
+		Movie movie = movieRepo.findOne(id);
+		HttpSession s = SessionManager.session();
+		User u = (User) s.getAttribute("user");
+		m.addAttribute("user", u);
+		m.addAttribute("movie", movie);
+		return "movie/single_movie";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteMovie(@PathVariable long id, RedirectAttributes ra) {
+		this.movieRepo.delete(id);
+		return "redirect:/";
+
+	}
 	
 	
 	@ModelAttribute("type")
