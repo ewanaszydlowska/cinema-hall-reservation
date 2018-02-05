@@ -56,12 +56,14 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public String loginPost(@ModelAttribute LoginData loginData, Model m, RedirectAttributes ra) {
+	public String loginPost(@ModelAttribute LoginData loginData, Model m
+//			, RedirectAttributes ra
+			) {
 		User u = this.userrepo.findOneByemail(loginData.getEmail());
 			if (u != null && u.isPasswordCorrect(loginData.getPassword())) {
 				HttpSession s = SessionManager.session();
 				s.setAttribute("user", u);
-				ra.addFlashAttribute("msg", "Logged as" + u.getFirstName()+u.getLastName());
+//				ra.addFlashAttribute("msg", "Logged as" + u.getFirstName()+u.getLastName());
 				return "redirect:/home";
 		}
 		m.addAttribute("msg", "Invalid username or password");
