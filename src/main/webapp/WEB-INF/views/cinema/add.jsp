@@ -8,8 +8,6 @@
 <%@ include file="../jspf/header.jspf"%>
 <%@ include file="../jspf/main_menu.jspf"%>
 
-
-
 <form:form method="post" modelAttribute="cinema">
 	<p>
 		Address:
@@ -36,6 +34,5 @@
 		<input type="submit" value="Dodaj" />
 	</p>
 </form:form>
-
 
 <%@ include file="../jspf/footer.jspf"%>
