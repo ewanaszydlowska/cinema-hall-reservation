@@ -28,6 +28,7 @@ public class Auditory {
 	@NotNull
 	private Integer seatQuantity;
 	
+	@NotNull
 	@ManyToOne
 	private Cinema cinema;
 	
