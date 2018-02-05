@@ -14,27 +14,35 @@
 	<c:choose>
 
 		<c:when test="${sessionScope.user == null}">
-					Musisz być zalogowany aby mieć dostęp do tej treści 
+					You need to be loggined in
 				</c:when>
 
 		<c:otherwise>
 			<div class="form-style-8">
-				<h2>TWOJE DANE</h2>
+				<h2>Account details</h2>
 				<p>
 					<!--User Name:-->
-					Imię: ${user.firstName }
+					First name: ${user.firstName }
 				</p>
 				<p>
 					<!--User LastName:-->
-					Nazwisko: ${user.lastName }
+					Last name: ${user.lastName }
 				</p>
 				<p>
 					<!--Email:-->
 					E-mail: ${user.email }
 				</p>
+				<p>
+					<!--Date of birth:-->
+					Year of birth: ${user.age }
+				</p>
+				<p>
+					<!--Phone:-->
+					Phone: ${user.phone }
+				</p>
 
-				<a class="box" href="./myaccount/editUser">Edytuj</a> | <a
-					class="box" href="./myaccount/delete">Usuń</a>
+				<a class="box" href="./account/editUser">Edytuj</a>
+				<a class="box" href="./account/delete">Usuń</a>
 			</div>
 		</c:otherwise>
 	</c:choose>
