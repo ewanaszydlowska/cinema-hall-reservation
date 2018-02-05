@@ -16,7 +16,7 @@
 		</c:when>
 		<c:otherwise>
 			<ul class="nav">
-				<li><a href="/cinema-hall-reservation">Menu główne</a></li>
+				<li><a href="/cinema-hall-reservation/home">Menu główne</a></li>
 				<li><a href="/cinema-hall-reservation/movie/add">Dodaj film</a></li>
 				<li><a href="/cinema-hall-reservation/film-show">Seanse</a></li>
 				<li><a href="/cinema-hall-reservation/cinema/add">Dodaj kino</a></li>
