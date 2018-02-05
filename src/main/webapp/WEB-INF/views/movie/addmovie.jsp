@@ -21,6 +21,7 @@
 	<c:when test="${sessionScope.user == null}">
 	Log first if you want to add new movie!
 	</c:when>
+
 		<c:otherwise>
 			<form:form method="post" modelAttribute="movie"
 				enctype="multipart/form-data">
@@ -61,6 +62,7 @@
 				</p>
 			</form:form>
 		</c:otherwise>
+
 </c:choose>
 
 	<!-- END MAIN -->

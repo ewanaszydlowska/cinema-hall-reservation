@@ -1,5 +1,6 @@
 package pl.reservation.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -34,12 +35,19 @@ public class Movie {
 	private String cast;
 	
 	@NotBlank
+	private String description;
+	
+	@NotBlank
 	private String ageLimit;
 	
 	@NotNull
 	private Integer duration;
 	
 	private String posterUrl;
+	
+	private Date created;
+	
+	private int expired;
 	
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private List<Screening> screenings;
@@ -50,7 +58,10 @@ public class Movie {
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private List<Rating> rating;
 
-	public Movie() {}
+	public Movie() {
+		super();
+		this.created = new Date();
+	}
 
 	public Long getId() {
 		return id;
@@ -140,4 +151,32 @@ public class Movie {
 		this.rating = rating;
 	}
 
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+
+	public int getExpired() {
+		return expired;
+	}
+
+	public void setExpired(int expired) {
+		this.expired = expired;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
+	
+	
+	
 }
